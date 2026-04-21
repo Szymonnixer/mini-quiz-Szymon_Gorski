@@ -32,6 +32,7 @@ public class OkienkoPytania extends AppCompatActivity {
     List<Question> allQuestions = new ArrayList<>();
     List<Question> testQuestions = new ArrayList<>();
     Random random = new Random();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +43,7 @@ public class OkienkoPytania extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
         q1 = findViewById(R.id.txtPytanie);
         a1 = findViewById(R.id.odpA);
         b1 = findViewById(R.id.odpB);
@@ -75,12 +77,9 @@ public class OkienkoPytania extends AppCompatActivity {
 
                     loadQuestion();
                     group.setEnabled(true);
-
                 }
                 else {
-                    Toast.makeText(this,
-                            "Koniec quizu! " + points + "/5",
-                            Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Koniec quizu! " + points + "/5", Toast.LENGTH_LONG).show();
                     goToMain();
                 }
             }, 300);
@@ -92,8 +91,9 @@ public class OkienkoPytania extends AppCompatActivity {
             group.clearCheck();
 
             generateTest();
-            loadQuestion();
+            goToMain();
         });
+
         initQuestions();
         generateTest();
         loadQuestion();

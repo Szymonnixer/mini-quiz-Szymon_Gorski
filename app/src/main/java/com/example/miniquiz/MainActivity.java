@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         Button start = findViewById(R.id.btnStart);
+
         start.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, OkienkoPytania.class);
             startActivity(intent);
@@ -31,6 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
         int points = getIntent().getIntExtra("points", 0);
         TextView wynik = findViewById(R.id.txtWynik);
-        wynik.setText(String.valueOf(points));
+        wynik.setText("Wynik: "+ points);
     }
 }
